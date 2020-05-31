@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "fredysa/node-docker"
+        registry = "fredysa/sample"
        
     }
     
