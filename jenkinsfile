@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh 'ls /home'
                 sh 'npm install'
-                sh 'npm express'
+                
             }
         }
         stage("Test"){
