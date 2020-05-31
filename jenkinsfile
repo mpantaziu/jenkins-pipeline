@@ -6,7 +6,7 @@ pipeline {
     
     agent {
         docker {
-            image 'node-docker:latest'
+            image 'fredysa/node-docker:latest'
             args '-p 3000:3000'
             args '-w /app'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
