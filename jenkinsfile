@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "fredysa/node-docker:latest"
-        DOCKER_PWD = credentials('docker-login-pwd')
+       
     }
     
     agent {
