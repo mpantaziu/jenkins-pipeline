@@ -1,15 +1,18 @@
 {
-  "name": "jenkins-pipeline",
+  "name": "sample-app",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "jasmine"
-  },
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "jasmine": "^3.4.0"
-  }
+    "jasmine": "^3.5.0"
+  },
+  "scripts": {
+    "test": "jasmine",
+    "start": "node server.js"
+  },
+  "author": "Demo",
+  "license": "ISC"
 }

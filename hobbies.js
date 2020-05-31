@@ -1,11 +1,9 @@
-const hobbies = ["jogging","cooking","diving","swimming","reading","rugby"];
+const hobbies = ["swimming", "dancing", "jogging", "cooking", "diving", "rugby"];
 
 exports.getHobbies = () => {
     return hobbies;
 }
 
 exports.getHobby = id => {
-    if(id<1 || id > hobbies.length)
-        return null;
     return hobbies[id-1];
 }
