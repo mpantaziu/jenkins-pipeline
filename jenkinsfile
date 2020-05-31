@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "fredysa/node-docker"
-        DOCKER_PWD = credentials('docker-login-pwd')
+        DOCKER_PWD = credentials('Mult1sync12#')
     }
     
     agent {
