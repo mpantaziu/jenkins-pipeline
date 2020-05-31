@@ -6,7 +6,7 @@ pipeline {
     
     agent {
         docker {
-            image 'fredysa/sample:latest'
+            image 'fredysa/node-docker:latest'
             args '-p 3000:3000'
             args '-w /app'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
@@ -30,12 +30,12 @@ pipeline {
                 sh 'npm test'
             }
         }
-
         stage("Build & Push Docker image") {
             steps {
-            docker.withRegistry('fredysa/node-docker:latest', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+                sh 'docker image build -t $registry:$BUILD_NUMBER .'
+                sh 'docker login -u fredysa -p $DOCKER_PWD'
+                sh 'docker image push $registry:$BUILD_NUMBER'
+                sh 'docker image rm $registry:$BUILD_NUMBER'
             }
         }
 
