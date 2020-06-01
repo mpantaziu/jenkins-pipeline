@@ -11,25 +11,13 @@ pipeline {
                 sh 'npm install' 
             }
         }
-    }
+        stage('Test') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
 
-    stage('Test') {
-            steps {
-                echo 'Testing'
-                
-            }
-    }
-        
-    stage('Deploy to Staging') {
-            steps {
-                echo 'Deploying to Staging'
-            }
-    }
-        
-    stage('Deploy to Production') {
-            steps {
-                echo 'Deploying to Production'
-            }
-    }
 
+
+    }
 }
