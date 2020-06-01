@@ -32,4 +32,4 @@ echo "Smoke tests..."
 docker container run --name tester \
     --rm \
     --net test-net \
-    fredysa/node-docker sh -c "curl api:3000"
+    test-net sh -c "curl api:3000"
