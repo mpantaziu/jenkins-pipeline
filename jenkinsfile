@@ -8,6 +8,8 @@ pipeline {
             steps {
                 echo 'Building'
                 sh 'ls /home'
+                sh 'docker version'
+                
             }
         }
         stage('Test') {
