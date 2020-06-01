@@ -2,10 +2,7 @@ pipeline {
     agent {
         docker {
             image 'fredysa/nodejstest'
-            args '-p 3000:3000'
-            args '--name App'
-            args '-it'
-            args '--rm'
+
 
         }
     }
