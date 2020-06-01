@@ -26,7 +26,7 @@ pipeline {
 
         stage("Build"){
             steps {
-                sh 'ls /home/jenkins-pipeline/'
+                sh 'ls /home/'
                 sh 'npm install'
                 
             }
