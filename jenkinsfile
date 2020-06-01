@@ -18,7 +18,23 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage("Build & Push Docker image") {
+            steps {
+                sh 'docker image build -t test:15 /home'
 
+            }
+
+        stage('Deploy and smoke test') {
+            steps{
+                 sh './home/scripts/deploy.sh'
+                }
+        }
+
+        stage('Cleanup') {
+            steps{
+                sh './home/scripts/cleanup.sh'
+                 }
+        }
 
 
     }
