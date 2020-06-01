@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+docker version
+
 echo "Removing api container if it exists..."
 docker container rm -f api || true
 echo "Removing network test-net if it exists..."
