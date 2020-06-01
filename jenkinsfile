@@ -1,44 +1,4 @@
 pipeline {
-    environment {
-        registry = "fredysa/sample:1.5"
-        path = "/home/"
-    }
-    agent {
-        docker {
-            image 'fredysa/sample:1.5'
-            args '-p 3000:3000'
-            args '-w /app'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-
-    stages {
-        stage("Build"){
-            steps {
-                sh '''
-                    docker version
-                '''
-                sh 'ls /home/'
-                sh 'npm install'
-            }
-        }
-        stage("Test"){
-            steps {
-                sh 'npm test'
-            }
-        }
-        stage("Build & Push Docker image") {
-            steps {
-                sh 'docker image build -t fredysa/sampl:2.0 /home'
-
-            }
-        }
-
-    }
-}
-
-
-pipeline {
     environment {       
         registry = "fredysa/sample:1.5"
         path = "/home/"
