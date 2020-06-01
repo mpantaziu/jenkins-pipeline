@@ -17,7 +17,6 @@ pipeline {
     stages {
         stage("Build"){
             steps {
-                sh 'docker version'
                 sh '''
                 bash 
                     apt-get update && \
