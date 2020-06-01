@@ -21,19 +21,6 @@ pipeline {
             }
         }
     
-
-
-    stages {
-
-        stage("Build"){
-            steps {
-                sh 'bash'
-                sh 'docker version'
-                sh 'ls /home/'
-                sh 'npm install'
-            }
-        }
-
     }
 
 }
