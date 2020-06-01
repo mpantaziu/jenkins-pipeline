@@ -19,6 +19,11 @@ pipeline {
         skipStagesAfterUnstable()
     }
 
+    stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+
     stages {
         stage("Build"){
             steps {
@@ -32,16 +37,14 @@ pipeline {
                 sh 'npm test'
             }
         }
-    
-        stage("Build & Push Docker image") {
-            steps {
-                sh 'docker image build -t fredysa/sample:2.0 .'
-                sh 'docker login -u fredysa -p $DOCKER_PWD'
-                sh 'docker image push $registry:$BUILD_NUMBER'
-                sh "docker image rm $registry:$BUILD_NUMBER"
-               
-            }
+        stage('Building our image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":1.6"
+                }
+             }
         }
+
 
         stage('Deploy and smoke test') {
            steps{
