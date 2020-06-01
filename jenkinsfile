@@ -9,15 +9,18 @@ pipeline {
     
     agent {
         any {
-            image 'fredysa/sample:1.5'
-            args '-p 3000:3000'
-            args '-w /app'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+
+    stages {
+        stage('Build First') {
+            steps {
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
+            }
         }
-    }
-    options {
-        skipStagesAfterUnstable()
-    }
+    
 
 
     stages {
@@ -30,35 +33,7 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage("Test"){
-            steps {
-                sh 'npm test'
-            }
-        }
-        stage('Building our image') {
-            steps{
-                script {
-                    echo "Path = ${env.path}"
-                    echo "Registry = ${env.registry}"
-                    sh 'docker --help'
-                    sh 'docker image build -t fredysa/sampl:1.5 /home'
 
-                }
-             }
-        }
-
-
-        stage('Deploy and smoke test') {
-           steps{
-                sh './jenkins/scripts/deploy.sh'
-            }
-        }
-
-        stage('Cleanup') {
-            steps{
-            sh './jenkins/scripts/cleanup.sh'
-            }
-        }
-        
     }
+
 }
