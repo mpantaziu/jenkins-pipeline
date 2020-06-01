@@ -1,8 +1,6 @@
-ipeline {
+pipeline {
     environment {
         registry = "fredysa/sample"
-        registryCredential = '42651425'
-        dockerImage = ''
         path = "/home/"
     }
     agent {
@@ -38,3 +36,5 @@ ipeline {
 
     }
 }
+
+
