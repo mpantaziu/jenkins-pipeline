@@ -16,12 +16,14 @@ pipeline {
         stage('Test') { 
             steps {
                 sh 'npm test'
-                sh 'docker version'
+                
+               
             }
         }
         stage("Build & Push Docker image") {
             steps {
-                sh 'docker --help'
+                sh 'hostname'
+                sh 'ls /home'
 
             }
         }
