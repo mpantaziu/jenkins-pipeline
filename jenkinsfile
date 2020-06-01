@@ -40,13 +40,11 @@ pipeline {
         stage('Building our image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":1.6" 
                     echo "Path = ${env.path}"
                     echo "Registry = ${env.registry}"
                     sh 'docker --help'
                     sh 'docker image build -t fredysa/sampl:1.5 /home'
 
-                    
                 }
              }
         }
