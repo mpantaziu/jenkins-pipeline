@@ -38,3 +38,24 @@ pipeline {
 }
 
 
+pipeline {
+    environment {       
+        registry = "fredysa/sample:1.5"
+        path = "/home/"
+    }
+
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Hello World"'
+                sh '''
+                    docker version
+    
+                '''
+                sh 'ls /home/'
+                sh 'npm install'
+            }
+        }
+    }
+}
