@@ -8,7 +8,7 @@ pipeline {
     }
     
     agent {
-        docker {
+        any {
             image 'fredysa/sample:1.5'
             args '-p 3000:3000'
             args '-w /app'
