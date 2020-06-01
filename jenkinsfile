@@ -1,6 +1,8 @@
 pipeline {
     environment {
         registry = "fredysa/sample"
+        registryCredential = '42651425'
+        dockerImage = ''
        
     }
     
@@ -30,11 +32,20 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Building our image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":1.6"
+                }
+             }
+        }
 
         stage("Build & Push Docker image") {
             steps {
                 sh 'docker image build -t fredysa/sample:2.0 .'
-                
+                sh 'docker login -u fredysa -p $DOCKER_PWD'
+                sh 'docker image push $registry:$BUILD_NUMBER'
+                sh "docker image rm $registry:$BUILD_NUMBER"
                
             }
         }
