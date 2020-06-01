@@ -23,6 +23,7 @@ pipeline {
                 sh 'docker image build -t test:15 /home'
 
             }
+        }
 
         stage('Deploy and smoke test') {
             steps{
@@ -35,7 +36,6 @@ pipeline {
                 sh './home/scripts/cleanup.sh'
                  }
         }
-
 
     }
 }
