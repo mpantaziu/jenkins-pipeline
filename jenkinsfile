@@ -16,7 +16,7 @@ pipeline {
         stage('Test') { 
             steps {
                 sh 'npm test'
-                
+                sh 'exit'
                
             }
         }
@@ -24,6 +24,7 @@ pipeline {
             steps {
                 sh 'hostname'
                 sh 'ls /home'
+                sh 'docker version'
 
             }
         }
