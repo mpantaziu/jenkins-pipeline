@@ -24,9 +24,9 @@ pipeline {
 
         stage("Build"){
             steps {
-                sh 'docker version'
-                sh 'ls /home/'
-                sh 'npm install'
+                bash 'docker version'
+                bash 'ls /home/'
+                bash 'npm install'
             }
         }
         stage("Test"){
