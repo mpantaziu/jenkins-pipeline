@@ -7,6 +7,7 @@ pipeline {
             args '-u root' 
             args '-p 8080:8080'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
+            
 
         }
     }
@@ -17,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'ls /usr/src/app'
+                
             }
         }
         stage('Test') {
