@@ -4,7 +4,7 @@ pipeline {
             image 'node:6-alpine' 
             args '-p 3000:3000' 
             args '-w /app'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+           
         }
     }
     stages {
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Cleanup') {
             steps{
-                sh '/home/scripts/cleanup.sh'
+                sh './home/scripts/cleanup.sh'
                  }
         }
 
