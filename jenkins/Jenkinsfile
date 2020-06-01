@@ -4,6 +4,9 @@ pipeline {
             image 'fredysa/nodejstest'
             args '-p 3000:3000'
             args '-w /app'
+            args '-u root' 
+            args '-p 8080:8080'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
 
         }
     }
