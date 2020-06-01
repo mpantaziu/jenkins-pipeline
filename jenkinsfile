@@ -20,7 +20,7 @@ pipeline {
         }
         stage("Build & Push Docker image") {
             steps {
-                sh 'docker image build -t test:15 /home'
+                sh 'docker image --help'
 
             }
         }
