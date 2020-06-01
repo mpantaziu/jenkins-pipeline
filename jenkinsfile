@@ -9,7 +9,10 @@ pipeline {
                 echo 'Building'
                 sh 'ls /home'
                 sh 'docker version'
-                sh 'npm install'
+                sh '''
+                bash
+                npm install
+                '''
             }
         }
         stage('Test') {
