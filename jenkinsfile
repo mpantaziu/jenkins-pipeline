@@ -6,7 +6,7 @@ pipeline {
     
     agent {
         docker {
-            image 'fredysa/node-docker:1.5'
+            image 'fredysa/node-docker:latest'
             args '-p 3000:3000'
             args '-w /app'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
@@ -34,7 +34,8 @@ pipeline {
         stage("Build & Push Docker image") {
             steps {
                 sh 'docker image build -t fredysa/sample:2.0 .'
-             
+                sh 'docker login'
+               
             }
         }
 
