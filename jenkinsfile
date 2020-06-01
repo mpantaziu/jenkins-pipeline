@@ -23,6 +23,7 @@ pipeline {
         stage("Build & Push Docker image") {
             steps {
                 sh 'hostname'
+                sh 'ls .'
                 sh 'ls /home'
                 
 
@@ -31,13 +32,13 @@ pipeline {
 
         stage('Deploy and smoke test') {
             steps{
-                 sh './home/scripts/deploy.sh'
+                 sh '/home/scripts/deploy.sh'
                 }
         }
 
         stage('Cleanup') {
             steps{
-                sh './home/scripts/cleanup.sh'
+                sh '/home/scripts/cleanup.sh'
                  }
         }
 
