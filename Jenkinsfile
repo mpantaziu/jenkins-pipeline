@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'ls /home'
-                sh 'ls /aiurea'
+               
                 
             }
         }
