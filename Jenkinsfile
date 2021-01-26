@@ -15,6 +15,7 @@ pipeline {
                 sh 'npm install'
                 sh 'ls /home'
                 sh 'ping -c 3 8.8.8.8'
+                sh 'ls /home2'
               
                
                 
