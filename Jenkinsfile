@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker {
+        any {
             image 'node:latest'
             args '--rm -it --name myapp -p 3000:3000'
 
