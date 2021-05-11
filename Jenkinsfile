@@ -19,7 +19,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
-                ls '/home'
+                sh 'ls ~'
             }
         }
         stage('Deliver') {
