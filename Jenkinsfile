@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh './jenkins/scripts/test.sh'
                 sh 'ls ~'
+                sh 'ls -lah'
             }
         }
         stage('Deliver') {
