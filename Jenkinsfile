@@ -21,7 +21,7 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
                 sh 'ls -lah'
                 sh 'cat update.ps1'
-                sh 'tr.sh'
+                
             }
         }
         stage('Deliver') {
